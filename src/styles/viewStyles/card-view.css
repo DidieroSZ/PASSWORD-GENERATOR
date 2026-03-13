@@ -1,0 +1,60 @@
+.card-container{
+    width: 400px;
+    max-width: 500px;
+    max-height: 90%;
+    height: 90%;
+    min-height: 700px;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--Negro);
+    color: var(--Blanco);
+    padding: var(--PadContainer);
+    border-radius: var(--RadContainer);
+    justify-content: start;
+    gap: 0.5rem;
+}
+
+    .card-container > .title-card{
+        width: 100%;
+        font-size: 1.5rem;
+    }
+    .title-card > svg{
+        color: var(--Neon);
+        transform: rotate(-45deg);
+        margin-right: 0.5rem;
+    }
+    .card-container >  small{
+        font-size: 0.7rem;
+        text-transform: lowercase;
+        color: var(--Gris);
+        gap: var(--GapContainer);
+    }
+    .pass-shower{
+        width: 100%;
+        height: 100px;
+        border-radius: var(--RadElement);
+        background-color: var(--InnerColor);
+        border: solid 1px var(--Gris);
+        padding: var(--PadElement);
+        position: relative;
+    }
+        .header-pass-shower{
+            width: 100%;
+            height: auto;
+            color: var(--Gris);
+            justify-content: space-between;
+        }
+            .header-pass-shower > small{
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                /* color: var(--Suave); */
+            }
+
+        .text-pass-shower{
+            position: absolute;
+            width: 100%;
+            transform: translateY(-50%);
+            top: 50%;
+            left: 0;
+            text-align: center;
+        }
