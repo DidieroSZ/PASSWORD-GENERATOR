@@ -17,6 +17,7 @@
         color: var(--Blanco);
         opacity: 0.4;
         font-size: 0.7rem;
+        letter-spacing: 0.5px;
     }
     .card-container-general{
         width: 100%;
@@ -128,7 +129,9 @@
         }
 
     .lenght-pass{
-        height: 120px;
+        height: auto;
+        min-height: 120px;
+        max-height: 200px;
         justify-content: space-between;
     }
         .lenght-pass > input{
@@ -161,3 +164,64 @@
             background-color: var(--Blanco);
             cursor: pointer;
         }
+        small.frame-small{
+            width: auto;
+            height: auto;
+            padding: 0.3rem 1rem;
+            background-color: var(--Neon2);
+            opacity: 1;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+    .character-selector{
+        gap: 0.5rem;
+    }
+        .option-character{
+            width: 40%;
+            height: auto;
+            min-height: 50px;
+            padding-block: 0.5rem;
+            flex-grow: 1;
+            position: relative;
+            overflow: hidden;
+            border: solid 1px var(--Neon);
+            background-color: var(--Negro);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+            
+            .input-char{
+                width: 100%;
+                visibility: hidden;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: 3;
+            }
+            
+            .option-character > *{
+                width: 100%;
+                text-align: center;
+                z-index: 2;
+            }
+            .layer-char{
+                height: 100%;
+                position: absolute;
+                z-index: 1;
+                background-color: transparent;
+                transition: all 0.5s ease;
+            }
+            .input-char[type=checkbox]:checked + .layer-char{
+                background-color: var(--Neon2);
+            }
+            .option-character > .char-symbol{
+                font-weight: bold;
+                font-size: 1rem;
+                margin-bottom: 5px;
+
+            }
+            .option-character > .char-name{
+                text-transform: uppercase;
+            }
