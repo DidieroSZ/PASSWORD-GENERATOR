@@ -4,7 +4,6 @@
 /** GENERAL DOCUMENT CONFIGURATIONS */
 :host{
     --Blanco: #fff;
-    --Suave: #EAEFEF;
     --Gris: #333333;
     --Negro: #131010;
     --Fondo: #1a1a1a;
@@ -61,7 +60,40 @@
 }
 /** COMMON CLASES */
 
-
+/** BUTTONS CLASES */
+.btn-gen{
+    width: 100%;
+    height: auto;
+    border-radius: var(--RadElement);
+    padding: var(--PadElement);
+    text-align: center;
+    text-transform: uppercase;
+    border: none;
+    background-color: var(--Blanco);
+    color: var(--Negro);
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 3;
+}
+    .btn-gen > svg{
+        color: var(--Negro);
+        width: auto;
+        height: 2cap;
+        aspect-ratio: 1/1;
+        stroke-width: 3px;
+        margin-right: 0.5rem;
+    }
+.btn-pri{
+    box-shadow: var(--Neon) 0 0 8px;
+    transition: all 0.5s ease;
+    background-color: var(--Neon);
+}
+    .btn-pri:hover{
+        letter-spacing: 1px;
+        background-color: var(--Neon);
+        box-shadow: var(--Neon) 0px 7px 29px 0px;
+    }
+/** BUTTONS CLASES */
 
 .main-container{
     width: 100%;

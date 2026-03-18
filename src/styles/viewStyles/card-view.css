@@ -11,25 +11,36 @@
     padding: var(--PadContainer);
     border-radius: var(--RadContainer);
     justify-content: start;
-    gap: 0.5rem;
+    gap: var(--PadElement);
 }
-
-    .card-container > .title-card{
-        width: 100%;
-        font-size: 1.5rem;
-    }
-    .title-card > svg{
-        color: var(--Neon);
-        transform: rotate(-45deg);
-        margin-right: 0.5rem;
-    }
-    .card-container >  small{
+    .card-container small{
+        color: var(--Blanco);
+        opacity: 0.4;
         font-size: 0.7rem;
-        text-transform: lowercase;
-        color: var(--Gris);
-        gap: var(--GapContainer);
     }
-    .pass-shower{
+    .card-container-general{
+        width: 100%;
+        height: auto;
+    }
+
+    .title-card-container{
+
+    }
+        .title-card-container > .title-card{
+            width: 100%;
+            font-size: 1.5rem;
+        }
+            .title-card > svg{
+                color: var(--Neon);
+                transform: rotate(-45deg);
+                margin-right: 0.5rem;
+            }
+        .title-card-container >  small{
+            text-transform: lowercase;
+            gap: var(--GapContainer);
+        }
+    
+    .marked-inner-container{
         width: 100%;
         height: 100px;
         border-radius: var(--RadElement);
@@ -38,23 +49,115 @@
         padding: var(--PadElement);
         position: relative;
     }
-        .header-pass-shower{
+        .marked-inner-container .header-marked{
             width: 100%;
             height: auto;
             color: var(--Gris);
             justify-content: space-between;
         }
-            .header-pass-shower > small{
-                font-size: 0.7rem;
+            .marked-inner-container small{
                 text-transform: uppercase;
-                /* color: var(--Suave); */
             }
 
-        .text-pass-shower{
+        .footer-marked{
+            width: 100%;
+            height: auto;
+            color: var(--Gris);
+            justify-content: space-between;
+        }
+
+
+        .pass-shower .text-pass-shower{
             position: absolute;
             width: 100%;
             transform: translateY(-50%);
             top: 50%;
             left: 0;
             text-align: center;
+        }
+    
+    .strong-visualizer{
+        position: relative;
+    }
+        .strong-visualizer > .container-strong-bars{
+            width: 100%;
+            height: auto;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            gap: 5px;
+        }
+            .container-strong-bars > .strong-bar-color{
+                width: 30%;
+                min-width: 20%;
+                height: auto;
+                min-height: 5px;
+                flex-shrink: 1;
+                border-radius: 10px;
+                overflow: hidden;
+                background-color: var(--Neon);
+            }
+        .text-strong-bar{
+            width: 100%;
+            height: auto;
+            display: block;
+            text-align: center;
+            margin-top: var(--GapContainer);
+            text-transform: uppercase;
+        }
+
+    .separetor{
+        position: relative;
+        margin-block: 1rem;
+    }
+        .separetor > hr{
+            z-index: 1;
+            background-color: var(--Gris);
+            height: 1px;
+            border: none;
+        }
+        .separetor > small{
+            opacity: 1;
+            position: absolute;
+            background-color: var(--Negro);
+            padding-inline: 1.5rem;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+            z-index: 2;
+            text-transform: uppercase;
+        }
+
+    .lenght-pass{
+        height: 120px;
+        justify-content: space-between;
+    }
+        .lenght-pass > input{
+            width: 100%;
+            height: 0.5rem;
+            background-color: var(--Neon);
+            accent-color: var(--Neon);
+            -webkit-appearance: none;
+            appearance: none;
+
+            outline: none;
+            border-radius: 10px;
+        }
+
+        .lenght-pass > input::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 34px;
+            height: 20px;
+            border-radius: 10px;
+            background-color: var(--Blanco);
+            cursor: pointer;
+        }
+        .lenght-pass > input::-moz-range-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 34px;
+            height: 20px;
+            border-radius: 10px;
+            background-color: var(--Blanco);
+            cursor: pointer;
         }

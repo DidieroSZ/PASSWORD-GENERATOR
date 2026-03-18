@@ -1,4 +1,4 @@
-# Proyecto LOVE 14 Lit-Element
+# Proyecto PASSWORD-GENERATOR Lit-Element
 
 Este proyecto es una aplicación web desarrollada con **LitElement** y **JavaScript Vanilla** Vanilla, pensada para generar contraseñas seguras y configureble a travez de distintos campos.
 El objetivo es combinar una experiencia visual sencilla con una arquitectura limpia y escalable, basada en componentes web.
