@@ -7,6 +7,10 @@ import generalStyles from '../styles/mainStyles.css?inline';
 import cardViewStyles from '../styles/viewStyles/card-view.css?inline';
 /* --- STYLES --- */
 
+/* --- COMPONENTS --- */
+import '../components/selector-component.js'
+/* --- COMPONENTS --- */
+
 /* --- ICONS --- */
 import { icons } from '../utils/icons.js'
 /* --- ICONS --- */
@@ -82,34 +86,10 @@ export class CardView extends LitElement{
 
                 <!-- CHARACTER SELECTOR - 07 -->
                 <div class="character-selector card-container-general d-flexx d-row"> 
-                    <label for="upper" class="option-character d-flexx d-row">
-                        <input type="checkbox" class="input-char" value="upper" name="upper" id="upper">
-                        <span class="layer-char"></span>
-                        <p class="char-symbol">ABC</p>
-                        <small class="char-name">CAPITAL LETTERS</small>
-                        
-                    </label>
-                    <label for="lower" class="option-character d-flexx d-row">
-                        <input type="checkbox" class="input-char" value="lower" name="lower" id="lower">
-                        <span class="layer-char"></span>
-                        <p class="char-symbol">abc</p>
-                        <small class="char-name">LOWERCASE</small>
-                        
-                    </label>
-                    <label for="numbers" class="option-character d-flexx d-row">
-                        <input type="checkbox" class="input-char" value="numbers" name="numbers" id="numbers">
-                        <span class="layer-char"></span>
-                        <p class="char-symbol">123</p>
-                        <small class="char-name">NUMBERS</small>
-                        
-                    </label>
-                    <label for="symbols" class="option-character d-flexx d-row">
-                        <input type="checkbox" class="input-char" value="symbols" name="symbols" id="symbols">
-                        <span class="layer-char"></span>
-                        <p class="char-symbol">!@#</p>
-                        <small class="char-name">SYMBOLS</small>
-                        
-                    </label>
+                    <selector-component .symbol="${'ABC'}" .value="${'upper'}" .name="${'CAPITAL LETTERS'}"></selector-component>
+                    <selector-component .symbol="${'abc'}" .value="${'lower'}" .name="${'LOWERCASE'}"></selector-component>
+                    <selector-component .symbol="${'123'}" .value="${'numbers'}" .name="${'NUMBERS'}"></selector-component>
+                    <selector-component .symbol="${'!@#'}" .value="${'symbols'}" .name="${'SYMBOLS'}"></selector-component>
                 </div>
                 <!-- END CHARACTER SELECTOR - 07 -->
                 
