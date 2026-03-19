@@ -12,7 +12,7 @@ small {
     position: relative;
     overflow: hidden;
     border: solid 1px var(--Neon);
-    background-color: var(--Negro);
+    background-color: var(--InnerColor);
     border-radius: 10px;
     cursor: pointer;
 }

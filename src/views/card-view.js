@@ -1,11 +1,15 @@
 import { html, LitElement, css } from "lit-element";
 import { unsafeCSS } from "lit-element";
-import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 
 /* --- STYLES --- */
 import generalStyles from '../styles/mainStyles.css?inline';
 import cardViewStyles from '../styles/viewStyles/card-view.css?inline';
 /* --- STYLES --- */
+
+/* --- SERVICES --- */
+import { generatePasswords } from '../services/service-generatePassword.js'
+/* --- SERVICES --- */
 
 /* --- COMPONENTS --- */
 import '../components/selector-component.js'
@@ -17,18 +21,33 @@ import { icons } from '../utils/icons.js'
 
 export class CardView extends LitElement{
     static properties = {
-        passEjemplo: { type: String },
+        passGenerated: { type: String },
+        lengthSetUp: { type: Number },
+        options: { type: Object },
+        alert: { type: Boolean},
     };
     
     constructor(){
         super();
-        this.passEjemplo = '*9-c6Y249R4.@J:q_4YLwn';
+        this.passGenerated = '*9-c6Y249R4.@J:q_4YLwn';
+        this.lengthSetUp = 22;
+        this.opciones = {
+            upper: true,
+            lower: true,
+            numbers: true,
+            symbols: true,
+        };
+        
     }
     
     static styles = [
         css`${unsafeCSS(generalStyles)}`,
         css`${unsafeCSS(cardViewStyles)}`,
     ]
+
+    firstUpdated(){
+        this._deleteAlert();
+    }
 
     render(){
         return html`
@@ -41,12 +60,13 @@ export class CardView extends LitElement{
                 <!-- END TITLE CARD - 01 -->
 
                 <!-- PASS SHOWER - 02 -->
-                <div class="pass-shower marked-inner-container card-container-general">
+                <div class="pass-shower marked-inner-container card-container-general d-flexx d-col">
                     <span class="header-marked d-flexx d-row ">
                         <small class="mono-font">CURRENT PASSWORD</small>
-                        <small class="mono-font">22 chars</small>
+                        <small class="mono-font">${this.passGenerated.length} chars</small>
                     </span>
-                    <p class="text-pass-shower">*9-c6Y249R4.@J:q_4YLwn</p>
+                    <p class="text-pass-shower">${this.passGenerated}</p>
+                    <small class="copy-btn mono-font d-flexx">${unsafeHTML(icons.files)} click para copiar</small>
                 </div>
                 <!-- END PASS SHOWER - 02 -->
 
@@ -63,7 +83,7 @@ export class CardView extends LitElement{
                 <!-- END STRONG VISUALIZER - 03 -->
 
                 <!-- BUTTON REGENERATE - 04 -->
-                <button class="btn-gen btn-pri d-flexx">${unsafeHTML(icons.rotate)}Regenerar contraseña</button>
+                <button class="btn-gen btn-pri d-flexx" @click=${this._generarPass} >${unsafeHTML(icons.rotate)}Regenerar contraseña</button>
                 <!-- END BUTTON REGENERATE - 04 -->
 
                 <!-- STRONG SEPARADOR - 05 -->
@@ -74,28 +94,76 @@ export class CardView extends LitElement{
                 <div class="lenght-pass marked-inner-container card-container-general d-flexx d-col">
                     <span class="header-marked d-flexx d-row ">
                         <small class="mono-font">lenght</small>
-                        <small class="mono-font frame-small">22</small>
+                        <small class="mono-font frame-small">${this.lengthSetUp}</small>
                     </span>
-                    <input type="range" id="length" name="length" min="0" max="16" value="4">
+                    <input type="range" id="length" name="length" min="4" max="32" value="${this.lengthSetUp}" step="2" @input=${this._renderLength}>
                     <span class="footer-marked d-flexx d-row ">
-                        <small class="mono-font">8</small>
-                        <small class="mono-font">64</small>
+                        <small class="mono-font">4</small>
+                        <small class="mono-font">32</small>
                     </span>
                 </div>
                 <!-- END LENGHT SELECTOR - 06 -->
 
+                <!-- ALERTA - 08 -->
+                    <div class="alert-modal card-container-general d-flexx">
+                        <small>¡Verifica los campos seleccionados!</small>
+                    </div>
+                <!-- END ALERTA - 08 -->
+
                 <!-- CHARACTER SELECTOR - 07 -->
-                <div class="character-selector card-container-general d-flexx d-row"> 
+                <div @change-selector=${this._selectorsChanges} class="character-selector card-container-general d-flexx d-row"> 
                     <selector-component .symbol="${'ABC'}" .value="${'upper'}" .name="${'CAPITAL LETTERS'}"></selector-component>
                     <selector-component .symbol="${'abc'}" .value="${'lower'}" .name="${'LOWERCASE'}"></selector-component>
                     <selector-component .symbol="${'123'}" .value="${'numbers'}" .name="${'NUMBERS'}"></selector-component>
                     <selector-component .symbol="${'!@#'}" .value="${'symbols'}" .name="${'SYMBOLS'}"></selector-component>
                 </div>
                 <!-- END CHARACTER SELECTOR - 07 -->
+
+
                 
             </section>
         `;
     }
+
+    _generarPass(){
+        this._alertModal();
+        if (this.alert) {
+            this.passGenerated = generatePasswords(this.lengthSetUp, this.opciones);
+        }
+    }
+
+    _renderLength(e){
+        this.lengthSetUp = e.target.value;
+    }
+
+    _selectorsChanges(e){
+        const { valor, checked } = e.detail;
+        this.opciones[valor] = checked;
+        this._alertModal();
+    }
+
+    _deleteAlert(){
+        let alertElement = this.renderRoot.querySelector('.alert-modal');
+        alertElement.style.height = '0px';
+        let selector1 = this.renderRoot.querySelector('selector-component');
+        selector1.click;
+    }
+    _alertModal(){
+        let alertElement = this.renderRoot.querySelector('.alert-modal');
+        const alerta = Object.values(this.opciones).some(v => v);
+
+        if (!alerta) {
+            this.alert = false;
+            alertElement.style.height = 'auto';
+        }
+        else{
+            this.alert = true;
+            alertElement.style.height = '0px';
+        }
+    }
+
 }
+
+
 
 customElements.define("card-view", CardView);

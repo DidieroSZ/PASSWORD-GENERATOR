@@ -25,7 +25,7 @@
     }
 
     .title-card-container{
-
+        
     }
         .title-card-container > .title-card{
             width: 100%;
@@ -43,7 +43,9 @@
     
     .marked-inner-container{
         width: 100%;
-        height: 100px;
+        height: auto;
+        min-height: 120px;
+        max-height: 200px;
         border-radius: var(--RadElement);
         background-color: var(--InnerColor);
         border: solid 1px var(--Gris);
@@ -67,15 +69,30 @@
             justify-content: space-between;
         }
 
-
-        .pass-shower .text-pass-shower{
-            position: absolute;
-            width: 100%;
-            transform: translateY(-50%);
-            top: 50%;
-            left: 0;
-            text-align: center;
+        .pass-shower{
+            height: auto;
+            min-height: 120px;
+            justify-content: space-between;
         }
+            .pass-shower .text-pass-shower{
+                position: absolute;
+                width: 100%;
+                transform: translateY(-50%);
+                top: 50%;
+                left: 0;
+                text-align: center;
+            }
+            .pass-shower .copy-btn{
+                height: auto;
+                cursor: pointer;
+            }
+                .pass-shower .copy-btn > svg{
+                    color: var(--Blanco);
+                    width: 2cap;
+                    height: auto;
+                    aspect-ratio: 1/1;
+                    margin-right: 0.5rem;
+                }
     
     .strong-visualizer{
         position: relative;
@@ -130,8 +147,6 @@
 
     .lenght-pass{
         height: auto;
-        min-height: 120px;
-        max-height: 200px;
         justify-content: space-between;
     }
         .lenght-pass > input{
@@ -198,3 +213,14 @@
             position: relative;
             overflow: hidden;
         }
+
+    .alert-modal{
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        border-radius: var(--RadElement);
+        padding: var(--PadElement);
+        background-color: var(--RojoBG);
+        border: solid 1px var(--RojoBOR);
+        /* display: none; */
+    }
