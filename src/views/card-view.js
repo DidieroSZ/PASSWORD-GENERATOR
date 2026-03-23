@@ -25,6 +25,7 @@ export class CardView extends LitElement{
         lengthSetUp: { type: Number },
         options: { type: Object },
         alert: { type: Boolean},
+        copyMessage: { type: String },
     };
     
     constructor(){
@@ -37,7 +38,7 @@ export class CardView extends LitElement{
             numbers: true,
             symbols: true,
         };
-        
+        this.copyMessage = `${icons.files} Click para copiar`;
     }
     
     static styles = [
@@ -66,7 +67,7 @@ export class CardView extends LitElement{
                         <small class="mono-font">${this.passGenerated.length} chars</small>
                     </span>
                     <p class="text-pass-shower">${this.passGenerated}</p>
-                    <small class="copy-btn mono-font d-flexx">${unsafeHTML(icons.files)} click para copiar</small>
+                    <small @click=${this.copyClipboard} class="copy-btn mono-font d-flexx">${unsafeHTML(this.copyMessage)}</small>
                 </div>
                 <!-- END PASS SHOWER - 02 -->
 
@@ -167,6 +168,15 @@ export class CardView extends LitElement{
         this.alert = false;
         alertElement.style.position = 'relative';
         alertElement.style.visibility = 'visible';
+    }
+
+
+    copyClipboard(){
+        navigator.clipboard.writeText(this.passGenerated);
+        this.copyMessage = `${icons.check} Texto copiado`;
+        setTimeout(() => {
+            this.copyMessage = `${icons.files} Click para copiar`;
+        }, 1500);
     }
 
 }
