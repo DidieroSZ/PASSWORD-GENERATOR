@@ -106,7 +106,7 @@ export class CardView extends LitElement{
 
                 <!-- ALERTA - 08 -->
                     <div class="alert-modal card-container-general d-flexx">
-                        <small>¡Verifica los campos seleccionados!</small>
+                        <small>¡Al menos 1 de los campos debe ser seleccionado!</small>
                     </div>
                 <!-- END ALERTA - 08 -->
 
@@ -143,23 +143,30 @@ export class CardView extends LitElement{
     }
 
     _deleteAlert(){
-        let alertElement = this.renderRoot.querySelector('.alert-modal');
-        alertElement.style.height = '0px';
-        let selector1 = this.renderRoot.querySelector('selector-component');
-        selector1.click;
+        this.hideAlert();
     }
     _alertModal(){
-        let alertElement = this.renderRoot.querySelector('.alert-modal');
         const alerta = Object.values(this.opciones).some(v => v);
-
         if (!alerta) {
-            this.alert = false;
-            alertElement.style.height = 'auto';
+            this.showAlert();
         }
         else{
-            this.alert = true;
-            alertElement.style.height = '0px';
+            this.hideAlert();
         }
+    }
+
+    hideAlert(){
+        let alertElement = this.renderRoot.querySelector('.alert-modal');
+        this.alert = true;
+        alertElement.style.position = 'absolute';
+        alertElement.style.visibility = 'hidden';
+    }
+    
+    showAlert(){
+        let alertElement = this.renderRoot.querySelector('.alert-modal');
+        this.alert = false;
+        alertElement.style.position = 'relative';
+        alertElement.style.visibility = 'visible';
     }
 
 }
