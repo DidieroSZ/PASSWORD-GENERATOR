@@ -56,7 +56,10 @@ npm run dev
 ---
 
 ## Tecnologías utilizadas
-![Lit](https://img.shields.io/badge/Lit-Element-blue)
+![Lit](https://img.shields.io/badge/Lit-Element-blue) ![Lit](https://img.shields.io/badge/Lit-Element-blue) ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+![Vite](https://img.shields.io/badge/Vite-Bundler-purple)
+![Crypto API](https://img.shields.io/badge/Web%20Crypto-Secure-green)
+![Clipboard API](https://img.shields.io/badge/Clipboard-API-orange)
 - **Lit (LitElement)** → Componentes web reactivos
 - **JavaScript (Vanilla)** → Lógica principal de la aplicación
 - **HTML5** → Estructura
