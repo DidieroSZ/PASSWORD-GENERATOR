@@ -10,12 +10,13 @@ El objetivo es combinar una experiencia de usuario sencilla con una arquitectura
 
 Para el desarrollo se optó por una estructura de carpetas bien definida, que facilita el mantenimiento, la reutilización de componentes y el crecimiento del proyecto a futuro.
 
+```sh
 components/ → Componentes pequeños y reutilizables (UI).
 views/ → Secciones grandes de la interfaz.
 pages/ → Pantallas completas asociadas a rutas.
 router/ → Lógica de navegación y renderizado de páginas.
 services/ → lógica y datos.
-
+```
 ​<!-- components → reutilizable y pequeño -->
 ​<!-- views → sección grande -->
 ​<!-- pages → pantalla completa / ruta -->
@@ -56,7 +57,8 @@ npm run dev
 ---
 
 ## Tecnologías utilizadas
-![Lit](https://img.shields.io/badge/Lit-Element-blue) ![Lit](https://img.shields.io/badge/Lit-Element-blue) ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+![Lit](https://img.shields.io/badge/Lit-Element-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 ![Vite](https://img.shields.io/badge/Vite-Bundler-purple)
 ![Crypto API](https://img.shields.io/badge/Web%20Crypto-Secure-green)
 ![Clipboard API](https://img.shields.io/badge/Clipboard-API-orange)

@@ -29,14 +29,15 @@ function cadenaGenerator(op){
 
 function cadenaRandomizer(cadena){
     const arr = Array.from(cadena);
-    const total = arr.length;
-    const setCadena = new Set();
+    let i = arr.length;
 
-    do {
-        const randomValues = window.crypto.getRandomValues(new Uint32Array(1));
-        const j = randomValues[0] % total;
+    while (i > 0) {
+        const rand = crypto.getRandomValues(new Uint32Array(1))[0];
+        const j = rand % i;
 
-        setCadena.add(arr[j]);
-    } while (setCadena.size < total);
-    return setCadena;
+        i--;
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+
+    return arr.join('');
 }
