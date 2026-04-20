@@ -109,6 +109,12 @@
     position: relative;
     background-color: var(--Fondo);
 }
+small{
+    color: var(--Blanco);
+    opacity: 0.4;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+}
 
 @media only screen and (max-width: 900px) {
     

@@ -13,6 +13,7 @@ import { generatePasswords } from '../services/service-generatePassword.js'
 
 /* --- COMPONENTS --- */
 import '../components/selector-component.js'
+import '../components/strong-component.js'
 /* --- COMPONENTS --- */
 
 /* --- ICONS --- */
@@ -71,7 +72,8 @@ export class CardView extends LitElement{
                 </div>
                 <!-- END PASS SHOWER - 02 -->
 
-                <!-- STRONG VISUALIZER - 03 -->
+                <strong-component style="width: 100%;" .passGenerated="${this.passGenerated}"></strong-component>
+                <!-- STRONG VISUALIZER - 03 
                 <div class="strong-visualizer card-container-general">
                     <div class="container-strong-bars d-flexx d-row">
                         <span class="strong-bar-color"></span>
@@ -80,7 +82,7 @@ export class CardView extends LitElement{
                         <span class="strong-bar-color"></span>
                     </div>
                     <small class="text-strong-bar mono-font">STRONG</small>
-                </div>
+                </div> -->
                 <!-- END STRONG VISUALIZER - 03 -->
 
                 <!-- BUTTON REGENERATE - 04 -->

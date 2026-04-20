@@ -1,0 +1,29 @@
+    .strong-visualizer{
+        position: relative;
+        width: 100%;
+    }
+        .strong-visualizer > .container-strong-bars{
+            width: 100%;
+            height: auto;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            gap: 5px;
+        }
+            .container-strong-bars > .strong-bar-color{
+                width: 30%;
+                min-width: 20%;
+                height: auto;
+                min-height: 5px;
+                flex-shrink: 1;
+                border-radius: 10px;
+                overflow: hidden;
+                background-color: var(--Neon);
+            }
+        .text-strong-bar{
+            width: 100%;
+            height: auto;
+            display: block;
+            text-align: center;
+            margin-top: var(--GapContainer);
+            text-transform: uppercase;
+        }
