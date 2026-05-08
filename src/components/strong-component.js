@@ -75,11 +75,11 @@ export class StrongComponent extends LitElement {
             score = 4;
         }
         if (
-            password.length >= 20 && hasUpper && hasLower && hasNumbers && hasSymbols) {
+            password.length >= 15 && hasUpper && hasLower && hasNumbers && hasSymbols) {
             score = 5;
         }
         if (
-            password.length >= 25 && hasUpper && hasLower && hasNumbers && hasSymbols) {
+            password.length >= 20 && hasUpper && hasLower && hasNumbers && hasSymbols) {
             score = 6;
         }
         if (
