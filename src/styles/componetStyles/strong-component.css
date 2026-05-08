@@ -17,6 +17,28 @@
                 flex-shrink: 1;
                 border-radius: 10px;
                 overflow: hidden;
+                background-color: var(--Gris);
+                /* border: solid 1px var(--Gris); */
+            }
+            .container-strong-bars > .strong-bar-color.fragile{
+                background-color: var(--fragile);
+            }
+            .container-strong-bars > .strong-bar-color.basic{
+                background-color: var(--basic);
+            }
+            .container-strong-bars > .strong-bar-color.solid{
+                background-color: var(--solid);
+            }
+            .container-strong-bars > .strong-bar-color.secure{
+                background-color: var(--secure);
+            }
+            .container-strong-bars > .strong-bar-color.fortified{
+                background-color: var(--fortified);
+            }
+            .container-strong-bars > .strong-bar-color.bulletproof{
+                background-color: var(--bulletproof);
+            }
+            .container-strong-bars > .strong-bar-color.neon{
                 background-color: var(--Neon);
             }
         .text-strong-bar{

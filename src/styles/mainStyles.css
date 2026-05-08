@@ -14,6 +14,13 @@
     --RojoBG: #2c0b0e; 
     --RojoBOR: #842029; 
 
+    --fragile: #ef4444;
+    --basic: #f97316;
+    --solid: #eab308 ;
+    --secure: #22c55e ;
+    --fortified: #14b8a6;
+    --bulletproof: #3b82f6;
+
     --PadContainer: 2rem;
     --PadElement: 1rem;
     --RadContainer: 2rem;
