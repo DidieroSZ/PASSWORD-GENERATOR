@@ -17,6 +17,7 @@
         color: var(--Blanco);
         opacity: 0.4;
         font-size: 0.7rem;
+        letter-spacing: 0.5px;
     }
     .card-container-general{
         width: 100%;
@@ -24,7 +25,7 @@
     }
 
     .title-card-container{
-
+        
     }
         .title-card-container > .title-card{
             width: 100%;
@@ -42,7 +43,9 @@
     
     .marked-inner-container{
         width: 100%;
-        height: 100px;
+        height: auto;
+        min-height: 120px;
+        max-height: 200px;
         border-radius: var(--RadElement);
         background-color: var(--InnerColor);
         border: solid 1px var(--Gris);
@@ -66,44 +69,30 @@
             justify-content: space-between;
         }
 
-
-        .pass-shower .text-pass-shower{
-            position: absolute;
-            width: 100%;
-            transform: translateY(-50%);
-            top: 50%;
-            left: 0;
-            text-align: center;
-        }
-    
-    .strong-visualizer{
-        position: relative;
-    }
-        .strong-visualizer > .container-strong-bars{
-            width: 100%;
+        .pass-shower{
             height: auto;
-            flex-wrap: nowrap;
+            min-height: 120px;
             justify-content: space-between;
-            gap: 5px;
         }
-            .container-strong-bars > .strong-bar-color{
-                width: 30%;
-                min-width: 20%;
-                height: auto;
-                min-height: 5px;
-                flex-shrink: 1;
-                border-radius: 10px;
-                overflow: hidden;
-                background-color: var(--Neon);
+            .pass-shower .text-pass-shower{
+                position: absolute;
+                width: 100%;
+                transform: translateY(-50%);
+                top: 50%;
+                left: 0;
+                text-align: center;
             }
-        .text-strong-bar{
-            width: 100%;
-            height: auto;
-            display: block;
-            text-align: center;
-            margin-top: var(--GapContainer);
-            text-transform: uppercase;
-        }
+            .pass-shower .copy-btn{
+                height: auto;
+                cursor: pointer;
+            }
+                .pass-shower .copy-btn > svg{
+                    color: var(--Blanco);
+                    width: 2cap;
+                    height: auto;
+                    aspect-ratio: 1/1;
+                    margin-right: 0.5rem;
+                }
 
     .separetor{
         position: relative;
@@ -128,7 +117,7 @@
         }
 
     .lenght-pass{
-        height: 120px;
+        height: auto;
         justify-content: space-between;
     }
         .lenght-pass > input{
@@ -161,3 +150,48 @@
             background-color: var(--Blanco);
             cursor: pointer;
         }
+        small.frame-small{
+            width: auto;
+            height: auto;
+            padding: 0.3rem 1rem;
+            background-color: var(--Neon2);
+            opacity: 1;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+    .character-selector{
+        gap: 0.5rem;
+    }
+        .option-character{
+            width: 40%;
+            height: auto;
+            min-height: 50px;
+            padding-block: 0.5rem;
+            flex-grow: 1;
+            position: relative;
+            overflow: hidden;
+            border: solid 1px var(--Neon);
+            background-color: var(--Negro);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        selector-component{
+            width: 40%;
+            height: auto;
+            flex-grow: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+    .alert-modal{
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        border-radius: var(--RadElement);
+        padding: var(--PadElement);
+        background-color: var(--RojoBG);
+        border: solid 1px var(--RojoBOR);
+        /* display: none; */
+    }
