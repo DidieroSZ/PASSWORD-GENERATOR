@@ -27,6 +27,7 @@ export class CardView extends LitElement{
         options: { type: Object },
         alert: { type: Boolean},
         copyMessage: { type: String },
+        theme: { type: String }
     };
     
     constructor(){
@@ -40,12 +41,22 @@ export class CardView extends LitElement{
             symbols: true,
         };
         this.copyMessage = `${icons.files} Click para copiar`;
+        this.theme = localStorage.getItem('theme') || 'dark';
     }
     
     static styles = [
         css`${unsafeCSS(generalStyles)}`,
         css`${unsafeCSS(cardViewStyles)}`,
     ]
+
+    connectedCallback() {
+        super.connectedCallback();
+
+        document.documentElement.setAttribute(
+            'data-theme',
+            this.theme
+        );
+    }
 
     firstUpdated(){
         this._deleteAlert();
@@ -72,17 +83,8 @@ export class CardView extends LitElement{
                 </div>
                 <!-- END PASS SHOWER - 02 -->
 
+                <!-- STRONG VISUALIZER - 03 -->
                 <strong-component style="width: 100%;" .passGenerated="${this.passGenerated}"></strong-component>
-                <!-- STRONG VISUALIZER - 03 
-                <div class="strong-visualizer card-container-general">
-                    <div class="container-strong-bars d-flexx d-row">
-                        <span class="strong-bar-color"></span>
-                        <span class="strong-bar-color"></span>
-                        <span class="strong-bar-color"></span>
-                        <span class="strong-bar-color"></span>
-                    </div>
-                    <small class="text-strong-bar mono-font">STRONG</small>
-                </div> -->
                 <!-- END STRONG VISUALIZER - 03 -->
 
                 <!-- BUTTON REGENERATE - 04 -->
@@ -122,8 +124,9 @@ export class CardView extends LitElement{
                 </div>
                 <!-- END CHARACTER SELECTOR - 07 -->
 
-
-                
+                <!-- COLOR THEME SELECTOR - 08 -->
+                <div class="theme-selector-container d-flexx" @click=${this.toggleTheme}>${this.theme === 'dark' ? unsafeHTML(icons.sun) : unsafeHTML(icons.moon)}</div>
+                <!-- END COLOR THEME SELECTOR - 08 -->
             </section>
         `;
     }
@@ -172,7 +175,6 @@ export class CardView extends LitElement{
         alertElement.style.visibility = 'visible';
     }
 
-
     copyClipboard(){
         navigator.clipboard.writeText(this.passGenerated);
         this.copyMessage = `${icons.check} Texto copiado`;
@@ -181,6 +183,19 @@ export class CardView extends LitElement{
         }, 1500);
     }
 
+    toggleTheme() {
+        this.theme =
+            this.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute(
+            'data-theme',
+            this.theme
+        );
+
+        localStorage.setItem(
+            'theme',
+            this.theme
+        );
+    }
 }
 
 
