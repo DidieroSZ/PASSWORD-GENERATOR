@@ -4,9 +4,10 @@
     max-height: 90%;
     height: 90%;
     min-height: 700px;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
     background-color: var(--Negro);
+    border: solid 1px var(--Gris);
     color: var(--Blanco);
     padding: var(--PadContainer);
     border-radius: var(--RadContainer);
@@ -193,5 +194,29 @@
         padding: var(--PadElement);
         background-color: var(--RojoBG);
         border: solid 1px var(--RojoBOR);
-        /* display: none; */
+    }
+
+    .theme-selector-container{
+        width: 40px;
+        height: auto;
+        aspect-ratio: 1/1;
+        border-radius: 0 0.5rem 0.5rem 0;
+        background-color: var(--Negro);
+        border: solid 1px var(--Gris);
+        border-left: 0;
+        overflow: hidden;
+        position: absolute;
+        top: var(--PadContainer);
+        left: 100%;
+    }
+
+    @media only screen and (max-width: 550px) {
+        .theme-selector-container{
+            border-radius: 0.5rem 0.5rem 0 0;
+            background-color: var(--Negro);
+            border: solid 1px var(--Gris);
+            border-bottom: 0;
+            top: -40px;
+            left: 80%;
+        }
     }
