@@ -8,7 +8,7 @@ export function generatePasswords(long, opciones) {
         const pos = randomValues[i] % arr.length;
         pass += arr[pos];
     }
-    console.log({pass});
+
     return pass;
 }
 

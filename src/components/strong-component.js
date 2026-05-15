@@ -83,7 +83,7 @@ export class StrongComponent extends LitElement {
             score = 6;
         }
         if (
-            password.length >= 30 && hasUpper && hasLower && hasNumbers && hasSymbols) {
+            password.length >= 26 && hasUpper && hasLower && hasNumbers && hasSymbols) {
             score = 7;
         }
 
@@ -130,7 +130,7 @@ export class StrongComponent extends LitElement {
 
         const active = levels[this.strength] || 0;
         
-        return [0, 1, 2, 3].map(i => html`
+        return [0, 1, 2, 3, 4, 5, 6].map(i => html`
             <span 
                 class="strong-bar-color ${i < active ? this.strength : ''}">
             </span>
